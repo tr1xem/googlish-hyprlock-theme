@@ -52,6 +52,7 @@ $HOME
 | --- | --- | --- |
 | Regular | PP Neue Machina | [Pangram Pangram](https://pangrampangram.com/products/neue-machina) |
 | Nerd Font | Geist & Space Mono | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/releases) |
+| Emoji | Apple Emoji | [apple-emoji-linux](https://github.com/samuelngs/apple-emoji-linux) |
 
 ## ✨ Special Thanks & Credits
 
