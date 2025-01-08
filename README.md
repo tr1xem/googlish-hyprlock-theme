@@ -1,1 +1,220 @@
 # Google-ish Hyprlock Theme ⚡
+## ▶️ Preview
+<details>
+  <summary><b>With Profile & User Info</b></summary>
+![Screenshot_2025-01-09_01 41 04](https://github.com/user-attachments/assets/6c5251e2-f181-4b0f-87f3-8b598af79da6)
+
+</details>
+<details>
+  <summary><b>Without Profile & User Info</b></summary>
+![Screenshot_2025-01-09_01 40 11](https://github.com/user-attachments/assets/e47d0e9e-2fc5-4b14-8c7a-c0231721a63a)
+
+</details>
+
+## Installation
+```bash
+# Clone the repository
+git clone https://github.com/user/googlish-hyprlock-theme.git
+
+# Move all the files to the hyprland config folder
+mv ~/googlish-hyprlock-theme/* ~/.config/hypr/
+
+# Go to script folder
+cd $HOME/.config/hypr/hyprlock/
+
+# Change all the scripts permission to make them executable
+chmod +x *.sh
+.
+hyprlock
+```
+
+## 🗄️ Directory Location
+```md
+$HOME
+└── .config
+    └── hypr
+        ├── hyprlock
+        │  ├── assets
+        │  ├── battery.sh
+        │  ├── greeting.sh
+        │  ├── network.sh
+        │  ├── medianotif.sh
+        │  ├── weatherinfo.sh
+        └── hyprlock.conf
+```
+
+## 🗨️ FAQ
+| Question | Answer |
+| --- | --- |
+| null location or Unable to determine your location? | Change the IP Geolocation provider in `weatherinfo.sh` |
+
+## 🏅 Recommendations
+| Type | Name | Links |
+| --- | --- | --- |
+| Regular | PP Neue Machina | [Pangram Pangram](https://pangrampangram.com/products/neue-machina) |
+| Nerd Font | Geist & Space Mono | [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/releases) |
+
+## ✨ Special Thanks & Credits
+
+| Details | Credit |
+| --- | --- |
+| Battery & Playerctl Widget Scripts | @ashish-kus [minimal Hyprlock](https://github.com/lunar-os/ZenCss) |
+| Helped Me Create Dynamic WiFi, Weathercast and Greeting Widget | @OPENAI [ChatGPT](https://github.com/itsmefen/Dark-Harmony) |
+
+
+## 🤖 ChatGPT in Action
+<details>
+  <summary>Some help from ChatGPT</summary>
+
+## My Dynamic WiFi prompt:
+>Can you please create a working dynamic wifi widget? I got u a script example from battery widget:
+```bash
+#!/bin/bash
+
+# Get the current battery percentage
+battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+# Get the battery status (Charging or Discharging)
+battery_status=$(cat /sys/class/power_supply/BAT0/status)
+
+# Define the battery icons for each 10% segment
+battery_icons=("󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
+
+# Define the charging icon
+charging_icon="󰂄"
+
+# Calculate the index for the icon array
+icon_index=$((battery_percentage / 10))
+
+# Get the corresponding icon
+battery_icon=${battery_icons[icon_index]}
+
+# Check if the battery is charging
+if [ "$battery_status" = "Charging" ]; then
+	battery_icon="$charging_icon"
+fi
+
+# Output the battery percentage and icon
+echo "$battery_percentage% $battery_icon"
+```
+## ChatGPT Answer:
+Here's a **dynamic Wi-Fi widget** script inspired by your battery widget example. This script fetches the Wi-Fi connection status, SSID, and signal strength, then displays an appropriate icon based on the signal quality.
+
+### Wi-Fi Widget Script (wifi_widget.sh)
+```bash
+#!/bin/bash
+
+# Get Wi-Fi connection status
+wifi_status=$(nmcli -t -f WIFI g)
+
+# Check if Wi-Fi is enabled
+if [ "$wifi_status" != "enabled" ]; then
+    echo "󰤮 Wi-Fi Off"
+    exit 0
+fi
+
+# Get active Wi-Fi connection details
+wifi_info=$(nmcli -t -f ACTIVE,SSID,SIGNAL dev wifi | grep '^yes')
+
+# If no active connection, show "Disconnected"
+if [ -z "$wifi_info" ]; then
+    echo "󰤮 No Wi-Fi"
+    exit 0
+fi
+
+# Extract SSID
+ssid=$(echo "$wifi_info" | cut -d':' -f2)
+
+# Extract signal strength
+signal_strength=$(echo "$wifi_info" | cut -d':' -f3)
+
+# Define Wi-Fi icons based on signal strength
+wifi_icons=("󰤯" "󰤟" "󰤢" "󰤥" "󰤨") # From low to high signal
+
+# Calculate the icon index based on signal strength (0–100 -> 0–4)
+icon_index=$((signal_strength / 25))
+
+# Get the corresponding icon
+wifi_icon=${wifi_icons[icon_index]}
+
+# Output the SSID and icon
+echo "$wifi_icon $ssid"
+
+```
+
+## How It Works
+
+1. Wi-Fi Status Check:
+	- Uses nmcli -t -f WIFI g to check if Wi-Fi is enabled.
+	- If Wi-Fi is off, it outputs 󰤮 Wi-Fi Off.
+
+2. Active Connection Details:
+	- Uses nmcli to fetch the SSID and signal strength of the active connection.
+	- If no connection is active, it outputs 󰤮 No Wi-Fi.
+
+3. Signal Strength Icons:
+	- Maps signal strength (0–100) to icons (󰤯 to 󰤨).
+
+4. Dynamic Output:
+	- Displays the icon, SSID, and signal strength percentage.
+
+## Example Outputs
+
+1. Wi-Fi Connected:
+```bash
+󰤥 MyWiFiNetwork
+```
+2. WiFi Off:
+```bash
+󰤮 Wi-Fi Off
+```
+3. No Connection
+```bash
+󰤮 No Wi-Fi
+```
+
+## Integration with `hyprlock.conf`
+No changes needed to your `hyprlock.conf`:
+```conf
+label {
+    # Wi-Fi Widget
+    monitor = 0
+    text = "$(bash ~/.config/hypr/hyprlock/wifi_widget.sh)"
+    
+	 shadow_passes = 1
+    shadow_boost = 0.5
+    color = $text_color
+    font_size = 30
+    font_family = $font_family
+
+    position = 0, 700
+    halign = center
+    valign = center
+}
+```
+
+## Setup Instructions
+
+1. Save the Script: Save the script in your $scrPath directory as wifi_widget.sh:
+```bash
+nano ~/.config/hypr/hyprlock/wifi_widget.sh
+```
+2. Make It Executable:
+```bash
+chmod +x ~/.config/hypr/hyprlock/wifi_widget.sh
+```
+3. Test the Script: Run the script to verify:
+```bash
+~/.config/hypr/hyprlock/wifi_widget.sh
+```
+4. Reload Hyprlock: Reload or restart Hyprlock to see the widget in action.
+
+## Dependencies
+
+- Ensure nmcli is installed (comes with NetworkManager).
+```bash
+    sudo pacman -S networkmanager
+```
+Let me know if you'd like any further customization! 😊
+
+</details>
