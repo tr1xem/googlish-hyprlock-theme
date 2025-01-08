@@ -4,11 +4,14 @@
 </div>
 
 ## ▶️ Preview
-### Without Profile & User Info
-![Screenshot_2025-01-09_01 41 04](https://github.com/user-attachments/assets/6c5251e2-f181-4b0f-87f3-8b598af79da6)
-
-### With Profile & User Info
-![Screenshot_2025-01-09_01 40 11](https://github.com/user-attachments/assets/e47d0e9e-2fc5-4b14-8c7a-c0231721a63a)
+<details>
+	<summary><b>Without Profile & User Info</b></summary>
+	<img src="https://github.com/user-attachments/assets/99515f22-9d77-4482-9033-ea66eab49b70" alt="Hyprlock-Without-Profile" width="1280">
+</details>
+<details>
+	<summary><b>With Profile & User Info</b></summary>
+	<img src="https://github.com/user-attachments/assets/d48d39ff-2253-46df-988b-99bd4c634e5e" alt="Hyprlock-With-Profile" width="1280">
+</details>
 
 ## Installation
 ```bash
