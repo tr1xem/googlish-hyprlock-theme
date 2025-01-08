@@ -1,15 +1,14 @@
-# Google-ish Hyprlock Theme ⚡
+<div align="center">
+    <h1>✦ Google-ish Hyprlock Theme ✦</h1>
+    <h3></h3>
+</div>
+
 ## ▶️ Preview
-<details>
-  <summary><b>With Profile & User Info</b></summary>
+### Without Profile & User Info
 ![Screenshot_2025-01-09_01 41 04](https://github.com/user-attachments/assets/6c5251e2-f181-4b0f-87f3-8b598af79da6)
 
-</details>
-<details>
-  <summary><b>Without Profile & User Info</b></summary>
+### With Profile & User Info
 ![Screenshot_2025-01-09_01 40 11](https://github.com/user-attachments/assets/e47d0e9e-2fc5-4b14-8c7a-c0231721a63a)
-
-</details>
 
 ## Installation
 ```bash
