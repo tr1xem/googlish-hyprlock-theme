@@ -13,7 +13,7 @@
 	<img src="https://github.com/user-attachments/assets/d48d39ff-2253-46df-988b-99bd4c634e5e" alt="Hyprlock-With-Profile" width="1280">
 </details>
 
-## Installation
+## 📦 Installation
 ```bash
 # Clone the repository
 git clone https://github.com/user/googlish-hyprlock-theme.git
