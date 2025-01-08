@@ -30,7 +30,7 @@ get_source_info_symbol() {
 get_source_info() {
 	trackid=$(get_metadata "mpris:trackid")
 	if [[ "$trackid" == *"firefox"* ]]; then
-		echo -e "Zen Browser"
+		echo -e "Firefox"
 	elif [[ "$trackid" == *"spotify"* ]]; then
 		echo -e "Spotify"
 	elif [[ "$trackid" == *"chromium"* ]]; then
