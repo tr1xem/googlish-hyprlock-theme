@@ -66,7 +66,7 @@ case "$1" in
 	if [ -z "$artist" ]; then
 		echo ""
 	else
-		truncate_with_ellipsis "$title" 28 # Limit the output to 50 characters
+		truncate_with_ellipsis "$artist" 28 # Limit the output to 50 characters
 	fi
 	;;
 --status-symbol)
@@ -98,7 +98,7 @@ case "$1" in
 		if [[ -n $status ]]; then
 			echo "Not album"
 		else
-			truncate_with_ellipsis "$title" 28 # Limit the output to 50 characters
+			truncate_with_ellipsis "$album" 28 # Limit the output to 50 characters
 		fi
 	fi
 	;;
