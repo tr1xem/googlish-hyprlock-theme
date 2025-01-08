@@ -17,7 +17,7 @@ get_metadata() {
 get_source_info_symbol() {
 	trackid=$(get_metadata "mpris:trackid")
 	if [[ "$trackid" == *"firefox"* ]]; then
-		echo -e "󰺕"
+		echo -e "󰈹"
 	elif [[ "$trackid" == *"spotify"* ]]; then
 		echo -e ""
 	elif [[ "$trackid" == *"chromium"* ]]; then
@@ -40,6 +40,17 @@ get_source_info() {
 	fi
 }
 
+# Function to truncate text with ellipsis if necessary
+truncate_with_ellipsis() {
+	text=$1
+	max_length=$2
+	if [ ${#text} -gt $max_length ]; then
+		echo "${text:0:$((max_length - 3))}..."
+	else
+		echo "$text"
+	fi
+}
+
 # Parse the argument
 case "$1" in
 --title)
@@ -47,7 +58,7 @@ case "$1" in
 	if [ -z "$title" ]; then
 		echo ""
 	else
-		echo "${title:0:28}" # Limit the output to 50 characters
+		truncate_with_ellipsis "$title" 28 # Limit the output to 50 characters
 	fi
 	;;
 --artist)
@@ -55,7 +66,7 @@ case "$1" in
 	if [ -z "$artist" ]; then
 		echo ""
 	else
-		echo "${artist:0:30}" # Limit the output to 50 characters
+		truncate_with_ellipsis "$title" 28 # Limit the output to 50 characters
 	fi
 	;;
 --status-symbol)
@@ -87,7 +98,7 @@ case "$1" in
 		if [[ -n $status ]]; then
 			echo "Not album"
 		else
-			echo ""
+			truncate_with_ellipsis "$title" 28 # Limit the output to 50 characters
 		fi
 	fi
 	;;
