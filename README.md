@@ -6,11 +6,11 @@
 ## ▶️ Preview
 <details>
 	<summary><b>Without Profile & User Info</b></summary>
-	<img src="https://github.com/user-attachments/assets/99515f22-9d77-4482-9033-ea66eab49b70" alt="Hyprlock-Without-Profile" width="1280">
+	<img src="https://github.com/user-attachments/assets/7bbacd47-b0d7-4132-9951-53dc0ead604c" alt="Hyprlock-Without-Profile" width="1280">
 </details>
 <details>
 	<summary><b>With Profile & User Info</b></summary>
-	<img src="https://github.com/user-attachments/assets/d48d39ff-2253-46df-988b-99bd4c634e5e" alt="Hyprlock-With-Profile" width="1280">
+	<img src="https://github.com/user-attachments/assets/9a58a6e2-a71f-4b28-998a-8a45c8950aaf" alt="Hyprlock-With-Profile" width="1280">
 </details>
 
 ## 📦 Installation
