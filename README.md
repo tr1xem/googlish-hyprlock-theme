@@ -44,13 +44,15 @@ $HOME
         │  ├── greeting.sh
         │  ├── network.sh
         │  ├── medianotif.sh
-        │  ├── weatherinfo.sh
+        │  └── weatherinfo.sh
         └── hyprlock.conf
 ```
 
 ## 🗨️ FAQ
 | Question | Answer |
 | --- | --- |
+| Profile & User info does not appear? | By default, it set without profile and user info. You can enable it by uncomment the `image` @PROFILE PICTURE and `label` @USER INFO in `hyprlock.conf` |
+| How to change the 24H Format to 12H Format? | Comment the 24H format and uncomment the 12H format. also uncomment the AM/PM `label` & `shape` in `hyprlock.conf` |
 | null location or Unable to determine your location? | Change the IP Geolocation provider in `weatherinfo.sh` |
 
 ## 🏅 Recommendations
@@ -65,7 +67,7 @@ $HOME
 | Details | Credit |
 | --- | --- |
 | Battery & Playerctl Widget Scripts | @ashish-kus [minimal Hyprlock](https://github.com/lunar-os/ZenCss) |
-| Helped Me Create Dynamic WiFi, Weathercast and Greeting Widget | @OPENAI [ChatGPT](https://github.com/itsmefen/Dark-Harmony) |
+| Helped Me Create Dynamic WiFi, Bluetooth, Weathercast and Greeting Widget | @OPENAI [ChatGPT](https://github.com/itsmefen/Dark-Harmony) |
 
 
 ## 🤖 ChatGPT in Action
