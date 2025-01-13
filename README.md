@@ -17,7 +17,7 @@
 ```bash
 # Backup your current Hyprlock config first!
 # Clone the repository
-git clone https://github.com/user/googlish-hyprlock-theme.git
+git clone https://github.com/Tamarindtype/googlish-hyprlock-theme.git
 
 # Move all the files to the hyprland config folder
 mv ~/googlish-hyprlock-theme/* ~/.config/hypr/
