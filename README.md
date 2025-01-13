@@ -15,6 +15,7 @@
 
 ## 📦 Installation
 ```bash
+# Backup your current Hyprlock config first!
 # Clone the repository
 git clone https://github.com/user/googlish-hyprlock-theme.git
 
@@ -26,7 +27,8 @@ cd $HOME/.config/hypr/hyprlock/
 
 # Change all the scripts permission to make them executable
 chmod +x *.sh
-.
+
+# Run the Hyprlock
 hyprlock
 ```
 
@@ -38,6 +40,7 @@ $HOME
         ├── hyprlock
         │  ├── assets
         │  ├── battery.sh
+        │  ├── bluetooth.sh
         │  ├── greeting.sh
         │  ├── network.sh
         │  ├── medianotif.sh
