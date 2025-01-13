@@ -67,7 +67,7 @@ $HOME
 | Details | Credit |
 | --- | --- |
 | Battery & Playerctl Widget Scripts | @ashish-kus [minimal Hyprlock](https://github.com/lunar-os/ZenCss) |
-| Helped Me Create Dynamic WiFi, Bluetooth, Weathercast and Greeting Widget | @OPENAI [ChatGPT](https://github.com/itsmefen/Dark-Harmony) |
+| Helped Me Create Dynamic WiFi, Bluetooth, Weathercast and Greeting Widget | @OPENAI [ChatGPT](https://chatgpt.com/)|
 
 
 ## 🤖 ChatGPT in Action
