@@ -90,7 +90,7 @@ case "$1" in
 	fi
 	;;
 --album)
-	album=$(playerctl metadata --format "{{ xesam:album }}" 2>/dev/null)
+	album=$(playerctl metadata --player=%any,chromium,firefox --format "{{ xesam:album }}" 2>/dev/null)
 	if [[ -n $album ]]; then
 		echo "$album"
 	else
