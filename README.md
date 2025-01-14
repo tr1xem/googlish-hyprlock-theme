@@ -12,6 +12,10 @@
 	<summary><b>With Profile & User Info</b></summary>
 	<img src="https://github.com/user-attachments/assets/9a58a6e2-a71f-4b28-998a-8a45c8950aaf" alt="Hyprlock-With-Profile" width="1280">
 </details>
+<details>
+	<summary><b>With Profile & User Info [12H Format]</b></summary>
+	<img src="https://github.com/user-attachments/assets/13d38fa8-01d4-4cfd-9127-e811c0683873" alt="Hyprlock-With-Profile" width="1280">
+</details>
 
 ## 📦 Installation
 ```bash
