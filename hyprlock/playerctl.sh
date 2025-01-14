@@ -8,7 +8,7 @@ fi
 # Function to get metadata using playerctl
 get_metadata() {
 	key=$1
-	playerctl metadata --format "{{ $key }}" 2>/dev/null
+	playerctl metadata --player=%any,chromium,firefox --format "{{ $key }}" 2>/dev/null
 }
 
 # Check for arguments
