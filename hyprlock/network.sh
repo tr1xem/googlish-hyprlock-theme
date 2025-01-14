@@ -1,41 +1,35 @@
 #!/bin/bash
 
-# Set this variable to control the output
-# Set to "true" to show SSID, "false" to show "Connected"
-# show_ssid=false
-
 # Read the wifi-mode alias from hyprlock.conf
 show_ssid=$(grep -oP '^\$wifi-mode\s*=\s*\K\S+' ~/.config/hypr/hyprlock.conf)
 
-# Check if the username was successfully extracted
+
+# Check if the Wi-Fi mode alias was successfully extracted
 if [ -z "$show_ssid" ]; then
-  echo "Username not found in hyprlock.conf."
-  exit 1
+    echo "Wi-Fi mode not found in hyprlock.conf."
+    exit 1
 fi
 
-# Get Wi-Fi connection status
-wifi_status=$(nmcli -t -f WIFI g)
+# Get the Wi-Fi interface
+wifi_interface=$(iw dev | awk '/Interface/ {print $2; exit}')
 
-# Check if Wi-Fi is enabled
-if [ "$wifi_status" != "enabled" ]; then
-    echo "󰤮  Wi-Fi Off"
+# Check if Wi-Fi interface exists
+if [ -z "$wifi_interface" ]; then
+    echo "󰤮  No Wi-Fi Interface"
     exit 0
 fi
 
-# Get active Wi-Fi connection details
-wifi_info=$(nmcli -t -f ACTIVE,SSID,SIGNAL dev wifi | grep '^yes')
+# Check if Wi-Fi is connected and get SSID
+ssid=$(iwgetid -r)
 
-# If no active connection, show "Disconnected"
-if [ -z "$wifi_info" ]; then
+# If not connected, show "No Wi-Fi"
+if [ -z "$ssid" ]; then
     echo "󰤮  No Wi-Fi"
     exit 0
 fi
 
-# Extract SSID
-ssid=$(echo "$wifi_info" | cut -d':' -f2)
-
-# Extract signal strength
-signal_strength=$(echo "$wifi_info" | cut -d':' -f3)
+# Get signal strength from /proc/net/wireless
+signal_strength=$(awk -v iface="$wifi_interface" '$1 ~ iface ":" {print int($3 * 100 / 70)}' /proc/net/wireless)
 
 # Define Wi-Fi icons based on signal strength
 wifi_icons=("󰤯" "󰤟" "󰤢" "󰤥" "󰤨") # From low to high signal
