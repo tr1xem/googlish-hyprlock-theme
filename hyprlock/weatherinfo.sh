@@ -12,16 +12,16 @@
 # COUNTRY=$(echo "$location_data" | jq -r '.country // empty')
 
 # IPINFO Alternative [IP-API.COM]
-# location_data=$(curl -s "http://ip-api.com/json/" 2>/dev/null)
+location_data=$(curl -s "http://ip-api.com/json/" 2>/dev/null)
 
 # Extract city and country code
-# CITY=$(echo "$location_data" | jq -r '.city // empty')
-# COUNTRY=$(echo "$location_data" | jq -r '.countryCode // empty')
+CITY=$(echo "$location_data" | jq -r '.city // empty')
+COUNTRY=$(echo "$location_data" | jq -r '.countryCode // empty')
 # Visit http://ip-api.com/json/ to find other variables
 
 # HARDCODE Location
-CITY=$(grep -oP '^\$CITY\s*=\s*\K.+' ~/.config/hypr/hyprlock.conf)
-COUNTRY=$(grep -oP '^\$COUNTRY\s*=\s*\K.+' ~/.config/hypr/hyprlock.conf)
+# CITY=$(grep -oP '^\$CITY\s*=\s*\K.+' ~/.config/hypr/hyprlock.conf)
+# COUNTRY=$(grep -oP '^\$COUNTRY\s*=\s*\K.+' ~/.config/hypr/hyprlock.conf)
 
 # Check if CITY and COUNTRY are valid
 if [[ -n "$CITY" && -n "$COUNTRY" ]]; then
