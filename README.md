@@ -14,7 +14,7 @@
 </details>
 <details>
 	<summary><b>With Profile & User Info [12H Format]</b></summary>
-	<img src="https://github.com/user-attachments/assets/13d38fa8-01d4-4cfd-9127-e811c0683873" alt="Hyprlock-With-Profile" width="1280">
+	<img src="https://github.com/user-attachments/assets/e0049860-7511-432e-8814-8d17d448182b" alt="Hyprlock-With-Profile" width="1280">
 </details>
 
 ## 📦 Installation
