@@ -20,7 +20,7 @@
 git clone https://github.com/Tamarindtype/googlish-hyprlock-theme.git
 
 # Move all the files to the hyprland config folder
-mv ~/googlish-hyprlock-theme/* ~/.config/hypr/
+mv ./googlish-hyprlock-theme/* ~/.config/hypr/
 
 # Go to script folder
 cd $HOME/.config/hypr/hyprlock/
